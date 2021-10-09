@@ -1,0 +1,101 @@
+<html>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        let canvas = document.querySelector('canvas');
+        let context = canvas.getContext('2d');
+
+        // context.fillStyle = 'blue';
+        // // context.fillRect(100,100,400,400);
+
+        context.lineWidth = 4;
+        // context.beginPath();
+        // context.rect(100,100,400,400);
+        // context.stroke();
+
+        // context.beginPath();
+        // context.arc(300,300,100,0, Math.PI*2);
+        // context.stroke();
+
+        const width = 60;
+        const height = 60;
+        const gap = 20;
+        let x, y;
+
+        var gradient = context.createLinearGradient(0, 0, 300, 1);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.75" ,"blue");
+        gradient.addColorStop("1.0", "red");
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                let x = 100 + (width + gap) * i;
+                let y = 100 + (height + gap) * j;
+
+                context.beginPath();
+                context.rect(x, y, width, height);
+                context.stroke();
+                // context.strokeStyle = gradient
+                
+                for (let k =0; k < Math.random()*10/2;k++) {
+                    radius = Math.random() * 100
+                    deg = Math.PI*2
+                    context.beginPath()
+                    // context.arc(x + width/k, y + height/k ,radius, 0, deg);
+                    context.rect(x + 8, y + 8, width, height)
+                    // context.rect(x+8, y, width, height)
+                    context.stroke()
+                    // context.strokeStyle = gradient
+                    context.lineWidth = (i+j)*2*Math.random()
+                }
+
+                for (let k =0; k < Math.random()*10/2;k++) {
+                    radius = Math.random() * 100
+                    deg = Math.PI*2
+                    context.beginPath()
+                    context.arc(x + width/k, y + height/k ,radius, 0, deg);
+                    context.rect(x + 8, y + 8, width, height)
+                    // context.rect(x+8, y, width, height)
+                    context.stroke()
+                    context.strokeStyle = gradient
+                    context.lineWidth = (i+j)*3*Math.random()
+                }
+            }
+        }
+
+        
+
+
+        let years = []
+        let menu = ['starter', 'main', 'dessert', 'drinks', 'sides']
+
+        for (let i = 0; i < menu.length; i++) {
+            console.log(menu[i]);
+        }
+
+        for (let i = 0; i < 10; i++) {
+            years.push(2040 + i);
+        }
+        console.log(years)
+
+        let gravity = 9.81
+        let velocity = 0.0
+
+        menu.forEach(item => {
+            console.log(item)
+        })
+
+        let artists = ['zemfira','total','vetusta']
+
+        artists.forEach(item =>{
+            console.log(item)
+        })
+
+    </script>
+
+
+</body>
+
+</html>
