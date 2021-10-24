@@ -8,9 +8,9 @@ const settings = {
 
 const params = {
   file: 'Airplane-PNG-Transparent-HD-Photo.png',
-  glyphs: 'O',
+  glyphs: '#',
   cell: 1,
-  tint: { r: 40, g: 131, b: 178, a: .7 }
+  tint: { r: 40, g: 231, b: 178, a: .6 }
 }
 
 let manager, image;
@@ -62,14 +62,14 @@ const magic = ({ video, context, width, height }) => {
 
     const glyph = getGlyph(r);
 
-    context.font = `${cell * 2}px ${fontFamily}`;
+    context.font = `${cell * 3}px ${fontFamily}`;
     context.fillStyle = color.style([
       params.tint.r, params.tint.g, params.tint.b, params.tint.a])
     context.fontStyle
     if (Math.random() < 0.1) {
       context.font = `${cell * 8}px ${fontFamily}`;
       context.fillStyle = color.style([
-        params.tint.r+50, params.tint.g+50, params.tint.b+50, params.tint.a+0.1])
+        params.tint.r+50, params.tint.g+50, params.tint.b+50, params.tint.a+0.5])
 
     }
 
@@ -88,9 +88,9 @@ const magic = ({ video, context, width, height }) => {
 };
 
 const getGlyph = (v) => {
-  if (v < 100) return '';
-  if (v < 150) return '-';
-  if (v < 200) return '—';
+  if (v < 150) return '';
+  if (v < 200) return '-';
+  if (v < 220) return '—';
   if (v < 250) return '+';
 
   const glyphs = params.glyphs.split(',');
