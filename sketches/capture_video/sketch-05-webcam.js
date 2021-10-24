@@ -8,7 +8,7 @@ const settings = {
 
 const params = {
   file: 'Airplane-PNG-Transparent-HD-Photo.png',
-  glyphs: '+,-,.,/',
+  glyphs: 'O',
   cell: 1,
   tint: { r: 40, g: 131, b: 178, a: .7 }
 }
@@ -88,10 +88,10 @@ const magic = ({ video, context, width, height }) => {
 };
 
 const getGlyph = (v) => {
-  if (v < 50) return '';
-  if (v < 100) return '-';
-  if (v < 150) return '—';
-  if (v < 200) return '=';
+  if (v < 100) return '';
+  if (v < 150) return '-';
+  if (v < 200) return '—';
+  if (v < 250) return '+';
 
   const glyphs = params.glyphs.split(',');
 
@@ -104,7 +104,7 @@ const createPane = () => {
 
   folder = pane.addFolder({ title: 'Settings' })
   folder.addInput(params, 'glyphs')
-  folder.addInput(params, 'cell', { step: 1, min: 4, max: 40 })
+  folder.addInput(params, 'cell', { step: 1, min: 1, max: 40 })
   folder.addInput(params, 'tint')
 }
 
